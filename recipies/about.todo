@@ -1,0 +1,11 @@
+# Recipe card
+
+Done:
+[x] Build the HTML of the recipe view.
+[x] Add motion on the ingredients.
+[x] Essential CSS to avoid trash.
+[x] Add responsiveness.
+
+Todo:
+[] Add transitions and a moving background.
+[] Add emojis.
