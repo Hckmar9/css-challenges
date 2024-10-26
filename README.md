@@ -1,10 +1,10 @@
-# 28 Days of Pure CSS
+# 20 Days of CSS
 
-![28 days of CSS](woman-coding.jpg)
+![20 days of CSS](/woman.jpg)
 
 ## 📅 Project Overview
 
-Welcome to **28 Days of Pure CSS**! This project was created to practice and reinforce my CSS skills through daily challenges. Each day, I'll tackle a new CSS concept or technique, culminating in a comprehensive understanding of CSS.
+Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This project is all about refining my CSS skills through daily challenges. Each day, I’ll dive into a new CSS concept or technique, and by the end, I'm planning to create a more structured project.
 
 ## 🎯 Goals
 
@@ -14,13 +14,13 @@ Welcome to **28 Days of Pure CSS**! This project was created to practice and rei
 
 ## 📆 Daily Challenges
 
-| Day | Challenge Description                      |
-| --- | ------------------------------------------ |
-| 1   | A recipe view.                             |
-| 2   | Design a responsive navigation bar.        |
-| 3   | Build a card component with hover effects. |
-| ... | ...                                        |
-| 28  | Create a complete landing page layout.     |
+| Day | Challenge Description     |
+| --- | ------------------------- |
+| 1   | A recipe view.            |
+| 2   | ...                       |
+| 3   | ...                       |
+| ... | ...                       |
+| 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
 
@@ -34,11 +34,11 @@ To get started with the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/28-days-of-pure-css.git
+   git clone https://github.com/Hckmar9/css-challenge.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd 28-days-of-pure-css
+   cd css-challenge
    ```
 3. Open the `index.html` file in your browser to view the challenges.
 
