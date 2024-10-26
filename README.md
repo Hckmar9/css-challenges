@@ -34,11 +34,11 @@ To get started with the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Hckmar9/css-challenge.git
+   git clone https://github.com/Hckmar9/css-challenges.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd css-challenge
+   cd css-challenges
    ```
 3. Open the `index.html` file in your browser to view the challenges.
 
