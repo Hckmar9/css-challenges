@@ -17,7 +17,7 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | Day | Challenge Description     |
 | --- | ------------------------- |
 | 1   | A recipe view.            |
-| 2   | ...                       |
+| 2   | Presentation Card.        |
 | 3   | ...                       |
 | ... | ...                       |
 | 20  | Final project (name soon) |
