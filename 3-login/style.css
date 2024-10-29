@@ -1,0 +1,347 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #0a0a2e, #1a1a4f);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.background-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+}
+
+.shape:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  left: -100px;
+  animation: float1 20s infinite;
+}
+
+.shape:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: -75px;
+  animation: float2 25s infinite;
+}
+
+.shape:nth-child(3) {
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  left: 50%;
+  animation: float3 30s infinite;
+}
+
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(100px, 100px) rotate(90deg);
+  }
+  50% {
+    transform: translate(50px, 200px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-50px, 100px) rotate(270deg);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-100px, -50px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(-50px, -100px) rotate(-180deg);
+  }
+  75% {
+    transform: translate(50px, -50px) rotate(-270deg);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-100px, -100px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-200px, 0px) rotate(180deg);
+  }
+  75% {
+    transform: translate(-100px, 100px) rotate(270deg);
+  }
+}
+
+.login-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 400px;
+  padding: clamp(20px, 5vw, 40px);
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: container-appear 0.5s ease-out;
+}
+
+@keyframes container-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container h2 {
+  color: #fff;
+  text-align: center;
+  font-size: clamp(1.5em, 5vw, 2em);
+  margin-bottom: clamp(20px, 4vw, 30px);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: text-appear 0.5s ease-out 0.3s both;
+}
+
+@keyframes text-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: clamp(20px, 4vw, 30px);
+  animation: input-appear 0.5s ease-out both;
+}
+
+.input-group:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.input-group:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes input-appear {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.input-group input {
+  width: 100%;
+  padding: clamp(12px, 3vw, 15px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: clamp(0.9em, 2.5vw, 1em);
+  transition: all 0.3s ease;
+}
+
+.input-group input:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.input-group input:focus {
+  border-color: rgba(74, 144, 226, 0.5);
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+  transform: translateY(-2px);
+}
+
+.input-group label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  transition: 0.3s ease all;
+  font-size: clamp(0.9em, 2.5vw, 1em);
+  padding: 0 5px;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: -10px;
+  left: 10px;
+  font-size: clamp(0.7em, 2vw, 0.8em);
+  background: #1a1a4f;
+  border-radius: 5px;
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: clamp(12px, 3vw, 15px);
+  background: linear-gradient(45deg, #4a90e2, #63b8ff);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: clamp(0.9em, 2.5vw, 1em);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  animation: button-appear 0.5s ease-out 0.6s both;
+}
+
+@keyframes button-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+  transition: 0.5s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+button:hover::before {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.forgot-password {
+  margin-top: clamp(15px, 3vw, 20px);
+  text-align: center;
+  animation: text-appear 0.5s ease-out 0.7s both;
+}
+
+.forgot-password a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: clamp(0.8em, 2vw, 0.9em);
+  transition: 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.forgot-password a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 480px) {
+  .background-shapes {
+    opacity: 0.5;
+  }
+
+  .shape {
+    animation-duration: 30s;
+  }
+
+  .input-group input:hover {
+    transform: none;
+  }
+
+  .forgot-password a {
+    display: inline-block;
+    padding: 10px;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 481px) and (max-width: 768px) {
+  .login-container {
+    margin: 20px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-height: 600px) and (orientation: landscape) {
+  .login-container {
+    padding: 15px;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+}
+
+/* Motion */
+@media (prefers-reduced-motion: reduce) {
+  .shape,
+  .login-container,
+  .input-group,
+  button,
+  .forgot-password {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0.1s !important;
+  }
+}
