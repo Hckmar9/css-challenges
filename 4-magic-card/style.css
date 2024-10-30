@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --card-width: 320px;
+  --card-height: 450px;
+  --image-height: 180px;
+  --border-radius: 24px;
+  --transition-speed: 0.3s;
+  --background-color: rgba(255, 255, 255, 0.1);
+  --text-color: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #81c3d7, #2f6690);
+  padding: 20px;
+  font-family: "Raleway", serif;
+}
+
+.magic-card {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: 1px;
+  transition: all var(--transition-speed) ease;
+  overflow: hidden;
+}
+
+.magic-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius);
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card-frame {
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 41, 59, 0.9),
+    rgba(15, 23, 42, 0.9)
+  );
+  border-radius: calc(var(--border-radius) - 1px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header,
+.card-footer {
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-footer {
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-name {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.mana-cost {
+  display: flex;
+  gap: 6px;
+}
+
+.mana-symbol {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  transition: transform var(--transition-speed) ease;
+}
+
+.mana-red {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.mana-colorless {
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.card-image {
+  position: relative;
+  height: var(--image-height);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-artwork {
+  position: absolute;
+  inset: 0;
+  background-image: url("dragouun.png");
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--transition-speed) ease;
+}
+
+.card-type {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.type-text {
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.rarity {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.card-text {
+  flex-grow: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 41, 59, 0.4),
+    rgba(15, 23, 42, 0.4)
+  );
+}
+
+.rule-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.artist {
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.stats {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.magic-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.magic-card:hover .card-artwork {
+  transform: scale(1.1);
+}
+
+.mana-symbol:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.magic-card:hover::before {
+  background: linear-gradient(
+    45deg,
+    rgba(239, 68, 68, 0.2),
+    rgba(255, 255, 255, 0.2),
+    rgba(59, 130, 246, 0.2)
+  );
+}
+
+.card-artwork.loading {
+  background: linear-gradient(110deg, #1a1718 20%, #2a2725 50%, #1a1718 80%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+.card-footer {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  :root {
+    --card-width: 280px;
+    --card-height: 400px;
+    --image-height: 160px;
+  }
+
+  .card-text {
+    font-size: 12px;
+  }
+}

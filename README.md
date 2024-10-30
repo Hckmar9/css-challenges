@@ -19,7 +19,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 1   | A recipe view.            |
 | 2   | Presentation Card.        |
 | 3   | Login form                |
-| ... | ...                       |
+| 4   | Magic card style          |
+| 5   | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
