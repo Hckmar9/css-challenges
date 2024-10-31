@@ -17,11 +17,12 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | Day | Challenge Description     |
 | --- | ------------------------- |
 | 1   | A recipe view.            |
-| 2   | Presentation Card.        |
+| 2   | Presentation card.        |
 | 3   | Login form                |
 | 4   | Magic card style          |
-| 5   | Restaurant Promo          |
-| 6   | ...                       |
+| 5   | Restaurant promo          |
+| 6   | UFO poster                |
+| 7   | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
