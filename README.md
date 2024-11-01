@@ -22,7 +22,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 4   | Magic card style          |
 | 5   | Restaurant promo          |
 | 6   | UFO poster                |
-| 7   | ...                       |
+| 7   | Timeline                  |
+| 8   | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
