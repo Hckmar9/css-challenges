@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="form.png" type="image/x-icon" />
+    <title>8-bits contact form</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>CONTACT US</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">NAME:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">EMAIL:</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">MESSAGE:</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <div class="button-container">
+          <button type="submit">SEND</button>
+          <div class="button-shadow"></div>
+        </div>
+      </form>
+      <div class="success-message" id="successMessage">MESSAGE SENT!</div>
+    </div>
+    <!-- Minimal JS for the sending simulation -->
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const form = this;
+          const button = form.querySelector("button");
+          const successMessage = document.getElementById("successMessage");
+
+          button.classList.add("loading");
+
+          setTimeout(() => {
+            button.classList.remove("loading");
+            form.style.display = "none";
+            successMessage.style.display = "block";
+            successMessage.classList.add("pixel-animation");
+          }, 1500);
+        });
+    </script>
+  </body>
+</html>
