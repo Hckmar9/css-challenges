@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Interactive tabs</title>
+  </head>
+  <body>
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'tab1')">
+          Overview
+        </button>
+        <button class="tab-button" onclick="openTab(event, 'tab2')">
+          Features
+        </button>
+        <button class="tab-button" onclick="openTab(event, 'tab3')">
+          Resources
+        </button>
+      </div>
+
+      <div class="tab-content">
+        <div id="tab1" class="tab-panel active">
+          <h2>Welcome to Our Platform</h2>
+          <p>
+            Randomly generated text. Experience the next generation of digital
+            innovation. Our platform combines cutting-edge technology with
+            intuitive design to deliver an unmatched user experience. We've
+            reimagined what's possible in digital spaces.
+          </p>
+          <p>
+            Built with modern standards and best practices, our solution offers
+            seamless integration, robust security, and scalable architecture to
+            meet your growing needs.
+          </p>
+        </div>
+
+        <div id="tab2" class="tab-panel">
+          <h2>Key Features</h2>
+          <p>
+            Randomly generated text. Discover a suite of powerful features
+            designed to enhance your workflow. From advanced analytics to
+            real-time collaboration tools, we provide everything you need to
+            stay ahead in today's fast-paced digital landscape.
+          </p>
+          <p>
+            Our intelligent automation and customizable interfaces ensure that
+            you can adapt the platform to your specific requirements while
+            maintaining peak performance.
+          </p>
+        </div>
+
+        <div id="tab3" class="tab-panel">
+          <h2>Learning Resources</h2>
+          <p>
+            Randomly generated text. Access comprehensive documentation,
+            tutorials, and guides to make the most of our platform. Our learning
+            resources are regularly updated to reflect the latest features and
+            best practices.
+          </p>
+          <p>
+            Join our community of developers and professionals to share
+            insights, get support, and stay updated with the latest developments
+            in our ecosystem.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Basic JS to smooth interaction -->
+    <script>
+      function openTab(evt, tabName) {
+        let tabPanels = document.getElementsByClassName("tab-panel");
+        for (let panel of tabPanels) {
+          panel.classList.remove("active");
+        }
+
+        let tabButtons = document.getElementsByClassName("tab-button");
+        for (let button of tabButtons) {
+          button.classList.remove("active");
+        }
+
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

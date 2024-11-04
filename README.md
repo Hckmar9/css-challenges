@@ -24,7 +24,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 6   | UFO poster                |
 | 7   | Timeline                  |
 | 8   | 8 bits contact            |
-| 9   | ...                       |
+| 9   | Interactive tabs          |
+| 10  | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
