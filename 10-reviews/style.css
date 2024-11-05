@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  padding: 2rem;
+}
+
+.reviews-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.review-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #64748b;
+}
+
+.reviewer-info h3 {
+  color: #1a202c;
+  margin-bottom: 0.25rem;
+}
+
+.reviewer-info .date {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.stars {
+  color: #f59e0b;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.review-text {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.review-stats {
+  display: flex;
+  gap: 1.5rem;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.stat:hover {
+  color: #2563eb;
+  background: #f1f5f9;
+}
+
+.stat i {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
