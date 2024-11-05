@@ -107,6 +107,7 @@ body {
   stroke-width: 1.5;
 }
 
+/* Responsiveness */
 @keyframes fadeIn {
   from {
     opacity: 0;
