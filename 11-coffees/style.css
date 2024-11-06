@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* A background more coffee~ish styled */
+@keyframes gradientBackground {
+  0% {
+    background: linear-gradient(45deg, #e0e1dd, #875135);
+  }
+  50% {
+    background: linear-gradient(45deg, #875135, #e0e1dd);
+  }
+  100% {
+    background: linear-gradient(45deg, #e0e1dd, #875135);
+  }
+}
+
+body {
+  background: #e0e1dd;
+  animation: gradientBackground 30s ease infinite;
+  color: #fff;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #4a4a4a;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #875135;
+}
+
+.coffee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.coffee-card {
+  background: #252525;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.coffee-card.hidden {
+  display: none;
+}
+
+.coffee-card:hover {
+  transform: translateY(-10px);
+}
+
+.coffee-image {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.coffee-content {
+  padding: 1.5rem;
+}
+
+.coffee-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.coffee-description {
+  color: #b0b0b0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tag-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+}
+
+.tag.hot {
+  background: #cc3333;
+  color: white;
+}
+
+.tag.strong {
+  background: #875135;
+  color: white;
+}
+
+.tag.light {
+  background: #5c3d2e;
+  color: white;
+}
+
+.tag.iced {
+  background: #2b5876;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.coffee-card {
+  animation: fadeIn 0.5s ease forwards;
+}

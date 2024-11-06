@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="beans.png" type="image/x-icon" />
+    <title>Coffee directory</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Coffee Directory</h1>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="hot">Hot</button>
+        <button class="filter-btn" data-filter="iced">Iced</button>
+        <button class="filter-btn" data-filter="light">Light</button>
+        <button class="filter-btn" data-filter="strong">Strong</button>
+      </div>
+    </div>
+
+    <div class="coffee-grid">
+      <div class="coffee-card" data-categories="hot strong">
+        <div
+          class="coffee-image"
+          style="background-image: url('/11-coffees/imgs/Espresso.jpg')"
+        ></div>
+        <div class="coffee-content">
+          <h2 class="coffee-title">Espresso</h2>
+          <p class="coffee-description">
+            A concentrated form of coffee served in small, strong shots. Perfect
+            for those seeking an intense coffee experience with rich crema and
+            bold flavors.
+          </p>
+          <div class="tag-container">
+            <span class="tag hot">Hot</span>
+            <span class="tag strong">Strong</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coffee-card" data-categories="iced light">
+        <div
+          class="coffee-image"
+          style="background-image: url('/11-coffees/imgs/coldbrew.jpeg')"
+        ></div>
+        <div class="coffee-content">
+          <h2 class="coffee-title">Cold Brew</h2>
+          <p class="coffee-description">
+            Smooth and naturally sweet coffee brewed with cold water over 12-24
+            hours. Less acidic than hot coffee with a refreshing finish.
+          </p>
+          <div class="tag-container">
+            <span class="tag iced">Iced</span>
+            <span class="tag light">Light</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coffee-card" data-categories="hot strong">
+        <div
+          class="coffee-image"
+          style="background-image: url('/11-coffees/imgs/turkishcoffee.jpg')"
+        ></div>
+        <div class="coffee-content">
+          <h2 class="coffee-title">Turkish Coffee</h2>
+          <p class="coffee-description">
+            Finely ground coffee beans simmered in a special pot, creating a
+            strong, unfiltered brew with a distinctive taste and rich aroma.
+          </p>
+          <div class="tag-container">
+            <span class="tag hot">Hot</span>
+            <span class="tag strong">Strong</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="coffee-card" data-categories="iced light">
+        <div
+          class="coffee-image"
+          style="
+            background-image: url('/11-coffees/imgs/IcedCaramelMacchiato.jpg');
+          "
+        ></div>
+        <div class="coffee-content">
+          <h2 class="coffee-title">Iced Caramel Macchiato</h2>
+          <p class="coffee-description">
+            Chilled espresso poured over vanilla-flavored milk and ice, topped
+            with caramel drizzle for a perfect balance of sweet and bitter.
+          </p>
+          <div class="tag-container">
+            <span class="tag iced">Iced</span>
+            <span class="tag light">Light</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Basic JS for the filter types -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".coffee-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filter = button.getAttribute("data-filter");
+
+            cards.forEach((card) => {
+              const categories = card
+                .getAttribute("data-categories")
+                .split(" ");
+
+              if (filter === "all" || categories.includes(filter)) {
+                card.classList.remove("hidden");
+                card.style.animation = "none";
+                card.offsetHeight;
+                card.style.animation = null;
+              } else {
+                card.classList.add("hidden");
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

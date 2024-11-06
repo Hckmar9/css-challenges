@@ -26,7 +26,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 8   | 8 bits contact            |
 | 9   | Interactive tabs          |
 | 10  | Book reviews              |
-| 11  | ...                       |
+| 11  | Coffee directory          |
+| 12  | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
