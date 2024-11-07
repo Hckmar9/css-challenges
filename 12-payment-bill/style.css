@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  font-family: "Mona Sans", Roboto, sans-serif;
+  background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.invoice {
+  background: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.invoice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #5b8e7d 0%, #0f4c5c 100%);
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 150px;
+  color: rgba(243, 244, 246, 0.2);
+  font-weight: bold;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.company-details {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 1.75rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #5b8e7d 0%, #0f4c5c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.5px;
+}
+
+.invoice-details {
+  text-align: right;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.invoice-id {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.dates {
+  color: #64748b;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.client-details {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.client-details::before {
+  content: "Bill To";
+  position: absolute;
+  top: -0.75rem;
+  left: 1rem;
+  background: #0f4c5c;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.client-name {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+th {
+  background: #f1f5f9;
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #64748b;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #f8fafc;
+}
+
+.amount {
+  text-align: right;
+  font-family: "Mona Sans", Roboto, sans-serif;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.total-box {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  min-width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  color: #64748b;
+}
+
+.total-amount {
+  font-weight: 600;
+  font-family: "Mona Sans", Roboto, sans-serif;
+  color: #1f2937;
+}
+
+.grand-total {
+  font-size: 1.25rem;
+  color: #0f4c5c;
+  border-top: 2px solid #e2e8f0;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  text-align: center;
+  color: #64748b;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, #5b8e7d 0%, #0f4c5c 100%);
+  border-radius: 2px;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: #94a3b8;
+}
+
+.status-badge {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: #dcfce7;
+  color: #166534;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+
+  .invoice {
+    box-shadow: none;
+  }
+
+  .status-badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

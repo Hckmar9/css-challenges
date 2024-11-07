@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="bill.png" type="image/x-icon" />
+    <title>Payment bill</title>
+  </head>
+  <body>
+    <div class="invoice">
+      <div class="watermark">PAID</div>
+      <div class="status-badge">Paid</div>
+      <br />
+
+      <div class="invoice-header">
+        <div class="company-details">
+          <div class="company-name">The Cool Company.</div>
+          <div>742 Evergreen Terrace</div>
+          <div>Springfield, EE.UU.</div>
+          <div>+1 (555) 123-4567</div>
+          <div>billing@thecool.co</div>
+        </div>
+        <div class="invoice-details">
+          <div class="invoice-id">INVOICE #001</div>
+          <div class="dates">
+            <div>Issue Date: Nov 7, 2024</div>
+            <div>Due Date: Nov 21, 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="client-details">
+        <div class="client-name">The Beam Machine.</div>
+        <div>456 Innovation Boulevard</div>
+        <div>Los Angeles, CA 90022</div>
+        <div>client@beammachine.com</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th class="amount">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Coffee Beans boxes</td>
+            <td>15</td>
+            <td>$1,500.00</td>
+            <td class="amount">$1,500.00</td>
+          </tr>
+          <tr>
+            <td>Marketing items</td>
+            <td>10</td>
+            <td>$3,000.00</td>
+            <td class="amount">$3,000.00</td>
+          </tr>
+          <tr>
+            <td>Website Development</td>
+            <td>1</td>
+            <td>$4,000.00</td>
+            <td class="amount">$4,000.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="total-container">
+        <div class="total-box">
+          <div class="total-row">
+            <span>Subtotal:</span>
+            <span class="total-amount">$8,500.00</span>
+          </div>
+          <div class="total-row">
+            <span>Tax (10%):</span>
+            <span class="total-amount">$850.00</span>
+          </div>
+          <div class="total-row grand-total">
+            <span>Total:</span>
+            <span class="total-amount">$9,350.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>Thank you for your business!</div>
+        <div style="margin: 0.5rem 0">Payment is due within 14 days</div>
+        <div>Bank Transfer: AC-12345678 | Sort Code: 12-34-56</div>
+        <div class="payment-methods">Wire Transfer • Credit Card • PayPal</div>
+      </div>
+    </div>
+  </body>
+</html>
