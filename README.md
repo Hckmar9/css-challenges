@@ -28,7 +28,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 10  | Book reviews              |
 | 11  | Coffee directory          |
 | 12  | Payment bill              |
-| 13  | ...                       |
+| 13  | Multi-step Wizard         |
+| 14  | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
