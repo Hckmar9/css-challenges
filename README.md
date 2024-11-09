@@ -29,7 +29,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 11  | Coffee directory          |
 | 12  | Payment bill              |
 | 13  | Multi-step Wizard         |
-| 14  | ...                       |
+| 14  | FAQ basic element         |
+| 15  | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used
