@@ -30,7 +30,8 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 12  | Payment bill              |
 | 13  | Multi-step Wizard         |
 | 14  | FAQ basic element         |
-| 15  | ...                       |
+| 15  | Shopping cart             |
+| 16  | ...                       |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used

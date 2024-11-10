@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="bag.png" type="image/x-icon" />
+    <title>Simple Product Cart</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="products">
+        <!-- On Day 15 we'll use more JS to populate here -->
+      </div>
+
+      <div class="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items">
+          <!-- Same, Day 15 of using more JS to populate -->
+        </div>
+        <div id="cart-total">Total: $0.00</div>
+        <button class="confirm-order-btn" onclick="confirmOrder()">
+          Confirm Order
+        </button>
+        <button class="new-order-btn" onclick="startNewOrder()">
+          Start New Order
+        </button>
+      </div>
+    </div>
+
+    <div class="modal" id="confirmation-modal">
+      <div class="modal-content">
+        <h2>Order Confirmed! 🎉</h2>
+        <p>
+          Thank you for your purchase. Your order will be processed shortly.
+        </p>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <script>
+      // For this example, I'm adding the products directly here, not the best practice for professional development.
+      const products = [
+        {
+          id: 1,
+          name: "Hobonichi Planner",
+          price: 50.99,
+          image: "img/item1.jpg",
+        },
+        {
+          id: 2,
+          name: "Hobonichi notebook",
+          price: 15.99,
+          image: "img/item2.jpg",
+        },
+        {
+          id: 3,
+          name: "Stickers for Hobonichi",
+          price: 5.99,
+          image: "img/item3.jpg",
+        },
+        {
+          id: 4,
+          name: "Cover for Hobonichi",
+          price: 30.99,
+          image: "img/item4.jpg",
+        },
+        {
+          id: 5,
+          name: "Hobonichi black planner",
+          price: 40.99,
+          image: "img/item5.jpg",
+        },
+        {
+          id: 6,
+          name: "Hobonichi light planner",
+          price: 22.99,
+          image: "img/item6.jpg",
+        },
+      ];
+
+      let cart = [];
+
+      function init() {
+        displayProducts();
+        updateCart();
+      }
+
+      function displayProducts() {
+        const productsContainer = document.querySelector(".products");
+        productsContainer.innerHTML = products
+          .map(
+            (product) => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p class="price">$${product.price.toFixed(2)}</p>
+                    <button class="add-to-cart-btn" onclick="addToCart(${
+                      product.id
+                    })">Add to Cart</button>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      function addToCart(productId) {
+        const product = products.find((p) => p.id === productId);
+        const cartItem = cart.find((item) => item.id === productId);
+
+        if (cartItem) {
+          cartItem.quantity++;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1,
+          });
+        }
+
+        updateCart();
+      }
+
+      /**
+       * This will update the cart items, total and quantity elements in the page.
+       * This function is called when the user adds or removes items from the cart.
+       * It recalculates the total and updates the page accordingly.
+       */
+      function updateCart() {
+        const cartItems = document.getElementById("cart-items");
+        cartItems.innerHTML = cart
+          .map(
+            (item) => `
+                <div class="cart-item">
+                    <div>
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="price">$${(
+                          item.price * item.quantity
+                        ).toFixed(2)}</div>
+                    </div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity(${item.id}, ${
+              item.quantity - 1
+            })">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, ${
+              item.quantity + 1
+            })">+</button>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+
+        const total = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        document.getElementById(
+          "cart-total"
+        ).textContent = `Total: $${total.toFixed(2)}`;
+      }
+
+      /**
+       * Updates the quantity of a product in the cart.
+       * If the new quantity is less than 1, the product is removed from the cart.
+       * Otherwise, the product's quantity is updated to the new quantity.
+       * After updating, the cart is refreshed to show changes.
+       */
+      function updateQuantity(productId, newQuantity) {
+        if (newQuantity < 1) {
+          cart = cart.filter((item) => item.id !== productId);
+        } else {
+          const item = cart.find((item) => item.id === productId);
+          if (item) {
+            item.quantity = newQuantity;
+          }
+        }
+        updateCart();
+      }
+
+      function confirmOrder() {
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+        document.getElementById("confirmation-modal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("confirmation-modal").style.display = "none";
+        startNewOrder();
+      }
+
+      function startNewOrder() {
+        cart = [];
+        updateCart();
+      }
+
+      init();
+    </script>
+  </body>
+</html>
