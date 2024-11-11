@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="dictionary.png" type="image/x-icon" />
+    <title>Personal Dictionary</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>📚 Your Personal Dictionary</h1>
+      <p class="subtitle">
+        Find the meaning of words, for some of them you'll have the option to
+        hear the pronunciation.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="search-wrapper">
+        <input type="text" placeholder="Type any word..." id="searchInput" />
+        <button class="search-button" onclick="searchWord()">
+          <span>Search</span>
+          <span>🔍</span>
+        </button>
+      </div>
+
+      <!-- I added some examples here from words I like, however this can be automated in a better way with JS or an API best one for me is the Oxford one, but there are a lot out there (e.g. rapidapi)-->
+      <div class="recent-searches">
+        <span class="recent-tag" onclick="searchForWord('serendipity')"
+          >serendipity</span
+        >
+        <span class="recent-tag" onclick="searchForWord('ephemeral')"
+          >ephemeral</span
+        >
+        <span class="recent-tag" onclick="searchForWord('mellifluous')"
+          >mellifluous</span
+        >
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <span>Searching for definition...</span>
+      </div>
+
+      <div class="result" id="result">
+        <div class="welcome">
+          <h2>👋 Welcome to Cozy Dictionary!</h2>
+          <p>
+            Start by typing a word in the search box above, or try one of our
+            suggested words:
+          </p>
+          <div class="suggestions">
+            <span class="recent-tag" onclick="searchForWord('wanderlust')"
+              >wanderlust</span
+            >
+            <span class="recent-tag" onclick="searchForWord('ethereal')"
+              >ethereal</span
+            >
+            <span class="recent-tag" onclick="searchForWord('luminous')"
+              >luminous</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">Made nerdly 🤓 for word lovers everywhere</div>
+
+    <!-- Here comes the goddies, in order to be able to make the dictionary work, we need to fetch the data from an API, so JS is heavily necessary -->
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const result = document.getElementById("result");
+      const loading = document.getElementById("loading");
+
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          searchWord();
+        }
+      });
+
+      function searchForWord(word) {
+        searchInput.value = word;
+        searchWord();
+      }
+
+      // Not all the words from the API I picked have the audio option, so some of them won't show the audio button.
+
+      async function searchWord() {
+        const word = searchInput.value.trim();
+        if (!word) return;
+        loading.classList.add("active");
+        result.classList.remove("active");
+        result.innerHTML = "";
+
+        try {
+          const response = await fetch(
+            `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+          );
+          const data = await response.json();
+
+          if (Array.isArray(data)) {
+            const entry = data[0];
+            let html = `
+                        <div class="word">
+                            <div>
+                                <h2>${entry.word}</h2>
+                                <span class="phonetic">${
+                                  entry.phonetic || ""
+                                }</span>
+                            </div>
+                    `;
+
+            if (
+              entry.phonetics &&
+              entry.phonetics[0] &&
+              entry.phonetics[0].audio
+            ) {
+              html += `
+                            <button class="play-audio" onclick="playAudio('${entry.phonetics[0].audio}')">
+                                🔊
+                            </button>
+                        `;
+            }
+
+            html += "</div>";
+
+            entry.meanings.forEach((meaning) => {
+              html += `
+                            <div class="meanings">
+                                <p class="part-of-speech">${meaning.partOfSpeech}</p>
+                        `;
+
+              meaning.definitions.forEach((def) => {
+                html += `
+                                <p class="definition">${def.definition}</p>
+                            `;
+
+                if (def.example) {
+                  html += `
+                                    <p class="example">"${def.example}"</p>
+                                `;
+                }
+              });
+
+              if (meaning.synonyms && meaning.synonyms.length > 0) {
+                html += '<div class="synonyms">';
+                meaning.synonyms.slice(0, 5).forEach((synonym) => {
+                  html += `
+                                    <span class="synonym-tag" onclick="searchForWord('${synonym}')">${synonym}</span>
+                                `;
+                });
+                html += "</div>";
+              }
+
+              html += "</div>";
+            });
+
+            result.innerHTML = html;
+          } else {
+            result.innerHTML = `
+                        <div class="error-message">
+                            Sorry, we couldn't find definitions for "${word}". 
+                            Please check your spelling or try another word.
+                        </div>
+                    `;
+          }
+        } catch (error) {
+          result.innerHTML = `
+                    <div class="error-message">
+                        Sorry, there was an error fetching the definition. 
+                        Please try again later.
+                    </div>
+                `;
+        }
+
+        // Hide loading state and show result
+        loading.classList.remove("active");
+        result.classList.add("active");
+      }
+
+      function playAudio(audioUrl) {
+        new Audio(audioUrl).play();
+      }
+    </script>
+  </body>
+</html>
