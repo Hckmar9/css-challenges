@@ -57,7 +57,7 @@ function updateHangman() {
   });
 }
 
-// Shows the main menu and hides all other sections.
+// Shows the main menu.
 function showMenu() {
   document.querySelector(".menu-section").style.display = "flex";
   document.querySelector(".instructions").style.display = "none";
