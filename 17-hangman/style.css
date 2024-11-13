@@ -1,0 +1,229 @@
+:root {
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --background: #f3f4f6;
+  --text: #1f2937;
+  --error: #ef4444;
+  --success: #10b981;
+  --accent: #fcd34d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background), #e5e7eb);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+button:hover,
+button:focus {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.hangman-drawing {
+  background: var(--background);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.game-section {
+  display: none;
+}
+
+.word-display {
+  font-size: 2.5rem;
+  letter-spacing: 0.75rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.key {
+  padding: 0.75rem;
+  background: var(--background);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--text);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.key:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.key:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.health {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.health-icons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.health-icon {
+  color: var(--error);
+  font-size: 1.5rem;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.category-btn {
+  background: var(--background);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.category-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.instructions {
+  display: none;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.instructions h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.instructions ul {
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.game-over {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: var(--background);
+}
+
+.win {
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.lose {
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.hangman-svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hangman-drawing {
+    aspect-ratio: 4/3;
+  }
+
+  .word-display {
+    font-size: 2rem;
+  }
+}

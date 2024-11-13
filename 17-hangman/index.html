@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="game.png" type="image/x-icon" />
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎮 The Hangman</h1>
+
+      <div class="menu-section">
+        <button onclick="showInstructions()">How to Play</button>
+        <button onclick="showCategories()">Start Game</button>
+      </div>
+
+      <div class="instructions">
+        <h2>📖 How to Play</h2>
+        <ul>
+          <li>Choose a category to get a random word</li>
+          <li>Click letters to guess the hidden word</li>
+          <li>
+            You have 8 lives - you have more than enough chances so good luck!
+          </li>
+          <li>Complete the word before running out of lives</li>
+        </ul>
+        <button onclick="showMenu()">Back to Menu</button>
+      </div>
+
+      <div class="categories">
+        <!-- Here goes the categories -->
+      </div>
+
+      <div class="game-section">
+        <div class="game-container">
+          <div class="hangman-drawing">
+            <svg class="hangman-svg" viewBox="0 0 200 200">
+              <!-- I struggle with SVG drawing, so I followed instructions from W3Schools, which is an excellent resource for this kind of things  -->
+              <!-- Base -->
+              <line
+                x1="40"
+                y1="180"
+                x2="160"
+                y2="180"
+                stroke="var(--text)"
+                stroke-width="4"
+              />
+              <!-- Vertical pole -->
+              <line
+                x1="100"
+                y1="180"
+                x2="100"
+                y2="20"
+                stroke="var(--text)"
+                stroke-width="4"
+              />
+              <!-- Horizontal pole -->
+              <line
+                x1="100"
+                y1="20"
+                x2="140"
+                y2="20"
+                stroke="var(--text)"
+                stroke-width="4"
+              />
+              <!-- Rope -->
+              <line
+                x1="140"
+                y1="20"
+                x2="140"
+                y2="40"
+                stroke="var(--text)"
+                stroke-width="4"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Head -->
+              <circle
+                cx="140"
+                cy="55"
+                r="15"
+                stroke="var(--text)"
+                stroke-width="4"
+                fill="none"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Body -->
+              <line
+                x1="140"
+                y1="70"
+                x2="140"
+                y2="120"
+                stroke="var(--text)"
+                stroke-width="4"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Left arm -->
+              <line
+                x1="140"
+                y1="80"
+                x2="120"
+                y2="100"
+                stroke="var(--text)"
+                stroke-width="4"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Right arm -->
+              <line
+                x1="140"
+                y1="80"
+                x2="160"
+                y2="100"
+                stroke="var(--text)"
+                stroke-width="4"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Left leg -->
+              <line
+                x1="140"
+                y1="120"
+                x2="120"
+                y2="140"
+                stroke="var(--text)"
+                stroke-width="4"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Right leg -->
+              <line
+                x1="140"
+                y1="120"
+                x2="160"
+                y2="140"
+                stroke="var(--text)"
+                stroke-width="4"
+                class="hangman-part"
+                style="display: none"
+              />
+              <!-- Face (only shows if you lose the game) -->
+              <g class="face" style="display: none">
+                <line
+                  x1="133"
+                  y1="50"
+                  x2="137"
+                  y2="54"
+                  stroke="var(--error)"
+                  stroke-width="2"
+                />
+                <line
+                  x1="137"
+                  y1="50"
+                  x2="133"
+                  y2="54"
+                  stroke="var(--error)"
+                  stroke-width="2"
+                />
+                <line
+                  x1="143"
+                  y1="50"
+                  x2="147"
+                  y2="54"
+                  stroke="var(--error)"
+                  stroke-width="2"
+                />
+                <line
+                  x1="147"
+                  y1="50"
+                  x2="143"
+                  y2="54"
+                  stroke="var(--error)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M 130 65 Q 140 60 150 65"
+                  stroke="var(--error)"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="game-info">
+            <div class="health">
+              Lives remaining: <span id="lives">8</span>
+              <div class="health-icons">
+                <!-- Here goes the lives -->
+              </div>
+            </div>
+            <div class="word-display"></div>
+            <div class="keyboard"></div>
+          </div>
+        </div>
+        <button onclick="showMenu()" style="margin-top: 2rem">
+          Back to Menu
+        </button>
+      </div>
+    </div>
+    <!-- As we're adding long scripts, it's better to create a separate file -->
+    <script src="index.js"></script>
+  </body>
+</html>
