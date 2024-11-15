@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="bulb.png" type="image/x-icon" />
+    <title>Advice Generator</title>
+    <!-- Inspired by Frontend Mentor for this challenge -->
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+    <main class="advice-container">
+      <p class="advice-number">Advice #<span id="advice-id">117</span></p>
+      <p class="advice-text" id="advice-content">Loading...</p>
+      <div class="divider"></div>
+      <button class="dice-button" id="generate-button">
+        <span class="dice">⚁</span>
+      </button>
+    </main>
+
+    <script>
+      // Here goes the stars
+      const starsContainer = document.getElementById("stars");
+      const numberOfStars = 50;
+
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+
+        // Random position
+        star.style.left = `${Math.random() * 100}%`;
+
+        // Random animation duration.
+        const duration = 3 + Math.random() * 5;
+        star.style.animationDuration = `${duration}s`;
+
+        // Random delay
+        star.style.animationDelay = `${Math.random() * 5}s`;
+
+        starsContainer.appendChild(star);
+      }
+
+      // Advice generator code
+      const adviceId = document.getElementById("advice-id");
+      const adviceContent = document.getElementById("advice-content");
+      const generateButton = document.getElementById("generate-button");
+
+      // Fetches a random advice from the AdviceSlip API
+      async function getAdvice() {
+        try {
+          const response = await fetch("https://api.adviceslip.com/advice");
+          const data = await response.json();
+
+          adviceId.textContent = data.slip.id;
+          adviceContent.textContent = data.slip.advice;
+        } catch (error) {
+          adviceContent.textContent =
+            "Failed to load advice. Please try again.";
+        }
+      }
+
+      generateButton.addEventListener("click", getAdvice);
+      getAdvice();
+    </script>
+  </body>
+</html>
