@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="notes.png" type="image/x-icon" />
+    <title>Note App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Personal Notes</h1>
+      <button id="theme-toggle">Toggle Theme</button>
+    </header>
+
+    <div class="container">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search notes..." />
+      </div>
+      <section class="notes-section" id="notes-section">
+        <!-- Notes will be shown here -->
+      </section>
+    </div>
+
+    <!-- Floating button -->
+    <button class="fab" id="new-note-btn">+</button>
+
+    <!-- Modal to add new note-->
+    <div class="modal" id="note-modal">
+      <div class="modal-content">
+        <button id="close-modal-btn">Close</button>
+        <h2>Create/Edit Note</h2>
+        <form id="note-form">
+          <input type="text" id="note-title" placeholder="Title" required />
+          <textarea
+            id="note-content"
+            placeholder="Content"
+            rows="5"
+            required
+          ></textarea>
+          <input
+            type="text"
+            id="note-tags"
+            placeholder="Add a tag and press Enter"
+          />
+          <!-- Here can go a div for the tags to add them dynamically -->
+          <button type="submit">Save Note</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

@@ -34,7 +34,7 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 | 16  | Personal dictionary       |
 | 17  | The Hangman game          |
 | 18  | Advice generator          |
-| 19  | ...                       |
+| 19  | Notes app                 |
 | 20  | Final project (name soon) |
 
 ## 💻 Technologies Used

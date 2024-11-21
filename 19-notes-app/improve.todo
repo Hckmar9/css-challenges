@@ -1,0 +1,5 @@
+### Things to improve in this app.
+[] Save into a database instead of localstorage.
+[] Add creation time, update time.
+[] Implement a list of tags to either select one already added and edit one.
+[] Implement a way to add files (images, videos, audio, documents) to notes.

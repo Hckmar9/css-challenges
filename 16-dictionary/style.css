@@ -48,13 +48,16 @@ h1 {
 }
 
 .search-box {
-  position: relative;
+  width: 100%;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .search-wrapper {
+  width: 100%;
+  max-width: 600px;
   position: relative;
-  margin-bottom: 1rem;
 }
 
 input {
@@ -279,6 +282,10 @@ input:focus {
 
   .recent-searches {
     display: none;
+  }
+
+  .search-box {
+    margin-bottom: 1rem;
   }
 }
 
