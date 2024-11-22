@@ -1,0 +1,298 @@
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("https://fonts.gstatic.com/s/kumbhsans/v12/c4mw1n92AsfhuCq6tVsaoIx1CHIi4kToNorqSyNIXIwSP0XD.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("https://fonts.gstatic.com/s/robotoslab/v24/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISmb2Rj.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("https://fonts.gstatic.com/s/spacemono/v12/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2")
+    format("woff2");
+}
+
+:root {
+  --primary-color: #ff6b6b;
+  --bg-dark: #1e213f;
+  --text-light: #f8f9fa;
+  --font-family: "Kumbh Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--text-light);
+}
+
+.timer-modes {
+  background: #161932;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  margin-bottom: 3rem;
+}
+
+.timer-modes button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.timer-modes button.active {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+
+.timer-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  border-radius: 50%;
+  box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke 0.3s ease;
+}
+
+.timer-display {
+  text-align: center;
+  z-index: 1;
+}
+
+.time {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.timer-button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.settings-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.settings-button:hover {
+  opacity: 1;
+}
+
+.settings-button svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--text-light);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-dark);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  color: #161932;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(22, 25, 50, 0.1);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section h3 {
+  letter-spacing: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+}
+
+.time-settings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.time-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-input-group label {
+  font-size: 0.8rem;
+  color: #1e213f;
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+.time-input {
+  background: #eff1fa;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1e213f;
+}
+/* this is for general options in modal */
+.font-options,
+.color-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+/* this is for each section, don't get confused with the elements */
+.font-option,
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.font-option {
+  background: #eff1fa;
+  color: #1e213f;
+}
+
+.font-option.active {
+  background: #161932;
+  color: white;
+}
+
+.color-option {
+  position: relative;
+}
+
+.color-option.coral {
+  background: #ff6b6b;
+}
+.color-option.blue {
+  background: #0077b6;
+}
+.color-option.purple {
+  background: #d881f8;
+}
+
+.color-option.active::after {
+  content: "✓";
+  color: #161932;
+  font-size: 1.2rem;
+}
+
+.apply-button {
+  display: block;
+  width: 140px;
+  margin: 0 auto;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  opacity: 0.9;
+}

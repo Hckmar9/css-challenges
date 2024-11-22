@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Pomodoro Timer</title>
+  </head>
+  <body>
+    <h1 class="logo">Pomodoro</h1>
+
+    <div class="timer-modes">
+      <button class="active" data-mode="pomodoro">pomodoro</button>
+      <button data-mode="shortBreak">short break</button>
+      <button data-mode="longBreak">long break</button>
+    </div>
+
+    <div class="timer-container">
+      <svg class="progress-ring" width="400" height="400">
+        <circle
+          cx="200"
+          cy="200"
+          r="190"
+          stroke-dasharray="1194"
+          stroke-dashoffset="0"
+        ></circle>
+      </svg>
+      <div class="timer-display">
+        <div class="time">25:00</div>
+        <button class="timer-button">START</button>
+      </div>
+    </div>
+
+    <button
+      class="settings-button"
+      aria-label="Settings"
+      style="background: none; border: none; padding: 0"
+    >
+      <i class="fas fa-cog" style="font-size: 24px; color: lightgray"></i>
+    </button>
+
+    <div class="modal" id="settingsModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Settings</h2>
+          <button class="close-button" aria-label="Close settings">×</button>
+        </div>
+
+        <div class="settings-section">
+          <h3>TIME (MINUTES)</h3>
+          <div class="time-settings">
+            <div class="time-input-group">
+              <label>Pomodoro</label>
+              <input
+                type="number"
+                class="time-input"
+                id="pomodoroTime"
+                value="25"
+                min="1"
+                max="60"
+                title="Enter pomodoro time in minutes"
+                placeholder="Minutes"
+              />
+            </div>
+            <div class="time-input-group">
+              <label>Short break</label>
+              <input
+                type="number"
+                class="time-input"
+                title="Enter short break time in minutes"
+                placeholder="Minutes"
+                id="shortBreakTime"
+                value="5"
+                min="1"
+                max="60"
+              />
+            </div>
+            <div class="time-input-group">
+              <label>Long break</label>
+              <input
+                type="number"
+                class="time-input"
+                id="longBreakTime"
+                value="15"
+                min="1"
+                max="60"
+                title="Enter long break time in minutes"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>FONT</h3>
+          <div class="font-options">
+            <button class="font-option active" data-font="Kumbh Sans">
+              Aa
+            </button>
+            <button class="font-option" data-font="Roboto Slab">Aa</button>
+            <button class="font-option" data-font="Space Mono">Aa</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>COLOR</h3>
+          <div class="color-options">
+            <button
+              class="color-option coral active"
+              data-color="#FF6B6B"
+              title="Coral Color"
+            ></button>
+            <button
+              class="color-option blue"
+              data-color="#70F3F8"
+              title="Cyan Color"
+              type="button"
+            ></button>
+            <button
+              class="color-option purple"
+              data-color="#D881F8"
+              title="Purple Color"
+              type="button"
+            ></button>
+          </div>
+        </div>
+
+        <button class="apply-button">Apply</button>
+      </div>
+    </div>
+    <!-- Free sounds to use -->
+    <audio id="timerSound" preload="auto">
+      <source
+        src="https://www.soundjay.com/buttons/sounds/beep-30b.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+  </body>
+  <script src="index.js"></script>
+</html>
