@@ -14,28 +14,28 @@ Welcome to **20 Days of CSS!** I'm excited to share this journey with you. This 
 
 ## 📆 Daily Challenges
 
-| Day | Challenge Description     |
-| --- | ------------------------- |
-| 1   | A recipe view.            |
-| 2   | Presentation card.        |
-| 3   | Login form                |
-| 4   | Magic card style          |
-| 5   | Restaurant promo          |
-| 6   | UFO poster                |
-| 7   | Timeline                  |
-| 8   | 8 bits contact            |
-| 9   | Interactive tabs          |
-| 10  | Book reviews              |
-| 11  | Coffee directory          |
-| 12  | Payment bill              |
-| 13  | Multi-step Wizard         |
-| 14  | FAQ basic element         |
-| 15  | Shopping cart             |
-| 16  | Personal dictionary       |
-| 17  | The Hangman game          |
-| 18  | Advice generator          |
-| 19  | Notes app                 |
-| 20  | Final project (name soon) |
+| Day | Challenge Description |
+| --- | --------------------- |
+| 1   | A recipe view.        |
+| 2   | Presentation card.    |
+| 3   | Login form            |
+| 4   | Magic card style      |
+| 5   | Restaurant promo      |
+| 6   | UFO poster            |
+| 7   | Timeline              |
+| 8   | 8 bits contact        |
+| 9   | Interactive tabs      |
+| 10  | Book reviews          |
+| 11  | Coffee directory      |
+| 12  | Payment bill          |
+| 13  | Multi-step Wizard     |
+| 14  | FAQ basic element     |
+| 15  | Shopping cart         |
+| 16  | Personal dictionary   |
+| 17  | The Hangman game      |
+| 18  | Advice generator      |
+| 19  | Notes app             |
+| 20  | Pomodoro App          |
 
 ## 💻 Technologies Used
 

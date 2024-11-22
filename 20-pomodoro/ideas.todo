@@ -1,4 +1,5 @@
 ### Things to improve
+[] Add a restart option, to avoid refresh page.
 [] Make a more optimal layout for smaller device's screen size.
 [] Toggle theme light/dark.
 [] Add new colors when the value is about to reach zero.
